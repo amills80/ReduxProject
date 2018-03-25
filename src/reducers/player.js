@@ -24,31 +24,29 @@ export default function Player(state = initialState, action){
     return [
       ...state,
       {
-          name: action.name,
+        name: action.name,
         score: 0
       }
     ];
 
-      case PlayerActionTypes.REMOVE_PLAYER:
-      return [
-        ...state.slice(0, action.index),
-        ...state.slice(action.index + 1)
-      ]
+    case PlayerActionTypes.REMOVE_PLAYER:
+    return [
+      ...state.slice(0, action.index),
+      ...state.slice(action.index + 1)
+    ];
 
-      case PlayerActionTypes.UPDATE_PLAYER_SCORE:
-      return state.map((player, index) => {
-        if (index === action.index) {
-          return {
-            ...player,
-            score: player.score + action.score
-          };
-        }
-        return player;
-      })
-      break;
+    case PlayerActionTypes.UPDATE_PLAYER_SCORE:
+    return state.map((player, index) => {
+      if (index === action.index) {
+        return {
+          ...player,
+          score: player.score + action.score
+        };
+      }
+      return player;
+    });
 
-    default:
-      return state;
-      
+  default:
+    return state;
   }
-};
+}

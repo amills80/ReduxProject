@@ -19,5 +19,5 @@ export const updatePlayerScore = (index, score) => {
     type: PlayerActionTypes.UPDATE_PLAYER_SCORE,
     index,
     score
-  }
-}
+  };
+};
