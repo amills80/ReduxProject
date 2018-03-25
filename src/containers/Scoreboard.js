@@ -8,35 +8,20 @@ import AddPlayerForm from '../components/AddPlayerForm';
 export default class Scoreboard extends Component {
   state = {
     players: [
-      {
-    		name: "Pearson Person",
-    		score: 20,
-    		id: 1,
-    	},
-    	{
-    		name: "Beach Bronson",
-    		score: 14,
-    		id: 2,
-    	},
-    	{
-    		name: "Thomson Twin",
-    		score: 53,
-    		id: 3,
-    	},
     ]
   };
 
-  onScoreChange = (index, delta) => {
+   onScoreChange = (index, delta) => {
     this.state.players[index].score += delta;
     this.setState(this.state);
   };
 
-  onAddPlayer = (name) => {
+   onAddPlayer = (name) => {
     this.state.players.push({ name: name, score: 0 });
     this.setState(this.state);
   };
 
-  onRemovePlayer = (index) => {
+   onRemovePlayer = (index) => {
     this.state.players.splice(index, 1);
     this.setState(this.state);
   };
